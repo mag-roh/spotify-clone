@@ -4,7 +4,7 @@ import Sidebar from './Sidebar'
 import Body from './Body';
 import Footer from './Footer';
 
-function Player(props/*{ spotify }*/) {
+function Player(/*props*/{ spotify }) {//prop drilling is used to pass spotify to the Player then to the body component
   return (
       <div className='player'>
       {/*<h1>Welcome to Spotify</h1>*/}
@@ -12,7 +12,7 @@ function Player(props/*{ spotify }*/) {
       {/*Sidebar*/}
      <Sidebar/>
         {/*Body*/}
-        <Body/>
+        <Body spotify={spotify} />
       </div>
       {/*Footer*/}
       <Footer/>

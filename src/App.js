@@ -46,6 +46,20 @@ function App() {
             user: user
           });
         });
+
+      spotify.getUserPlaylists().then((playlists) => {
+        dispatch({
+          type: "SET_PLAYLISTS",
+          playlists: playlists,
+        })
+      });
+
+      spotify.getPlaylist('37i9dQZEVXcBXabbVeFvcP').then(response => {
+        dispatch({
+          type: 'SET_DISCOVER_WEEKLY',
+          discover_weekly: response,
+        });
+      });
     }
     //console.log('I HAVE A TOKEN>>>>',token);
   }, []);//this code will run once the app component is loaded and also everytime the parameters given in the list change; runs once if the list is empty
